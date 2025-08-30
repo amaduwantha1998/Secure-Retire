@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './styles/glass.css';
+
+/* Professional Design System - Secure Retire
+All colors MUST be HSL format for proper theme compatibility.
+Typography: Poppins font family with consistent hierarchy.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Border Radius */
+    --radius: 12px;
+    
+    /* Core Backgrounds */
+    --background: 208 15% 97%; /* #F5F7FA */
+    --foreground: 210 11% 20%; /* #333333 */
+
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 210 11% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 20%;
+
+    /* Professional Color Palette */
+    --primary: 211 100% 50%; /* #007BFF */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 211 100% 45%;
+    
+    --success: 145 63% 42%; /* #28A745 */
+    --success-foreground: 0 0% 100%;
+    
+    --destructive: 354 85% 54%; /* #DC3545 */
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Neutral Grays */
+    --muted: 210 17% 92%; /* #E9ECEF */
+    --muted-foreground: 210 6% 56%;
+    
+    --accent: 210 17% 92%;
+    --accent-foreground: 210 11% 20%;
+    
+    /* Sidebar and Navigation */
+    --sidebar-background: 0 0% 100%; /* #FFFFFF */
+    --sidebar-foreground: 210 11% 20%; /* #333333 */
+    --sidebar-hover: 210 17% 92%; /* #E9ECEF */
+    --sidebar-active: 211 94% 95%; /* #E6F0FA */
+    --sidebar-active-foreground: 211 100% 50%; /* #007BFF */
+    
+    /* Borders and Inputs */
+    --border: 210 17% 92%;
+    --input: 210 17% 92%;
+    --ring: 211 100% 50%;
+    
+    /* Shadows */
+    --shadow-card: 0 2px 4px 0 hsl(0 0% 0% / 0.1);
+    --shadow-elevation: 0 4px 8px 0 hsl(0 0% 0% / 0.12);
+    
+    /* Typography Scale */
+    --text-h1: 1.25rem; /* 20px */
+    --text-h2: 1.125rem; /* 18px */
+    --text-h3: 1rem; /* 16px */
+    --text-body: 0.875rem; /* 14px */
+    --text-caption: 0.75rem; /* 12px */
+    
+    /* Layout */
+    --sidebar-width: 20%;
+    --content-width: 80%;
+    --spacing-section: 1rem; /* 16px */
+    --spacing-gutter: 1.5rem; /* 24px */
+    
+  }
+
+  .dark {
+    /* Core Backgrounds */
+    --background: 0 0% 12%; /* #1E1E1E */
+    --foreground: 0 0% 88%; /* #E0E0E0 */
+
+    --card: 0 0% 18%; /* #2D2D2D */
+    --card-foreground: 0 0% 88%;
+
+    --popover: 0 0% 18%;
+    --popover-foreground: 0 0% 88%;
+
+    /* Adjusted Professional Colors for Dark Mode */
+    --primary: 203 91% 60%; /* #4DA8DA */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 203 91% 55%;
+    
+    --success: 134 41% 55%; /* #2ECC71 */
+    --success-foreground: 0 0% 100%;
+    
+    --destructive: 4 90% 70%; /* #FF6B6B */
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Dark Mode Neutrals */
+    --muted: 0 0% 16%; /* #3A3A3A */
+    --muted-foreground: 0 0% 70%;
+    
+    --accent: 0 0% 16%;
+    --accent-foreground: 0 0% 88%;
+    
+    /* Dark Sidebar */
+    --sidebar-background: 0 0% 12%; /* #1E1E1E */
+    --sidebar-foreground: 0 0% 88%; /* #E0E0E0 */
+    --sidebar-hover: 0 0% 16%; /* #2A2A2A */
+    --sidebar-active: 203 40% 94%; /* Dark mode active background */
+    --sidebar-active-foreground: 203 91% 60%; /* #4DA8DA */
+    
+    /* Dark Borders */
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 203 91% 60%;
+    
+    /* Dark Shadows */
+    --shadow-card: 0 2px 4px 0 hsl(0 0% 100% / 0.1);
+    --shadow-elevation: 0 4px 8px 0 hsl(0 0% 100% / 0.12);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  /* Typography Hierarchy */
+  h1 {
+    @apply text-h1 font-semibold text-foreground;
+  }
+  
+  h2 {
+    @apply text-h2 font-medium text-foreground;
+  }
+  
+  h3 {
+    @apply text-h3 font-medium text-foreground;
+  }
+  
+  p, body {
+    @apply text-body font-normal text-foreground;
+  }
+  
+  .caption {
+    @apply text-caption font-normal text-muted-foreground;
+  }
+}
+
+@layer components {
+  /* Professional Card Component */
+  .card-professional {
+    @apply bg-card text-card-foreground rounded-xl p-4 shadow-card border border-border;
+  }
+  
+  /* Professional Button Variants */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-hover text-primary-foreground px-6 py-3 rounded-xl font-medium transition-colors;
+  }
+  
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-xl font-medium transition-colors;
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    @apply w-full bg-muted rounded-full h-2 overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply bg-primary h-full transition-all duration-300 ease-out;
+  }
+  
+  /* Fixed Sidebar Layout */
+  .sidebar-fixed {
+    @apply fixed left-0 top-0 h-screen bg-sidebar-background border-r border-border z-30;
+    width: var(--sidebar-width);
+  }
+  
+  .content-with-sidebar {
+    margin-left: var(--sidebar-width);
+    width: var(--content-width);
+  }
+  
+  /* Navigation Hover States */
+  .nav-item {
+    @apply flex items-center px-4 py-3 text-sidebar-foreground hover:bg-sidebar-hover hover:text-sidebar-foreground transition-colors cursor-pointer;
+  }
+  
+  .nav-item.active {
+    @apply bg-sidebar-active text-sidebar-active-foreground;
+  }
+}

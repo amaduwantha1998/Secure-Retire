@@ -1,0 +1,153 @@
+/* Glass Morphism Utilities */
+
+/* Base Glass Effect */
+.glass-base {
+  @apply backdrop-blur-md bg-white/25 dark:bg-gray-800/25 border border-white/20 dark:border-gray-700/20 rounded-xl shadow-glass;
+  will-change: transform;
+}
+
+/* Enhanced Glass Card */
+.glass-enhanced {
+  @apply glass-base bg-white/30 dark:bg-gray-800/30 shadow-lg;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+}
+
+.dark .glass-enhanced {
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+}
+
+/* Interactive Glass Elements */
+.glass-interactive {
+  @apply glass-base transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/40 hover:shadow-glow hover:-translate-y-0.5;
+}
+
+/* Glass Form Controls */
+.glass-input {
+  @apply backdrop-blur-sm bg-white/20 dark:bg-gray-800/20 border border-white/30 dark:border-gray-700/30 rounded-lg;
+  @apply focus:bg-white/30 dark:focus:bg-gray-800/30 focus:border-primary/50;
+}
+
+/* Glass Buttons */
+.glass-btn-primary {
+  @apply backdrop-blur-md bg-blue-600/60 hover:bg-blue-700/70 border border-blue-500/30;
+  @apply text-white font-medium transition-all duration-300;
+  @apply hover:shadow-lg hover:-translate-y-0.5;
+}
+
+.glass-btn-secondary {
+  @apply backdrop-blur-md bg-white/20 dark:bg-gray-800/20 hover:bg-white/30 dark:hover:bg-gray-800/30;
+  @apply border border-white/30 dark:border-gray-700/30 transition-all duration-300;
+  @apply hover:shadow-md hover:-translate-y-0.5;
+}
+
+/* Glass Navigation */
+.glass-nav {
+  @apply backdrop-blur-xl bg-white/12 dark:bg-gray-900/12 border-b border-white/15 dark:border-gray-700/15;
+  @apply sticky top-0 z-40;
+}
+
+/* Glass Sidebar */
+.glass-sidebar {
+  @apply backdrop-blur-xl bg-white/8 dark:bg-gray-900/8 border-r border-white/12 dark:border-gray-700/12;
+}
+
+/* Glass Cards */
+.glass-card {
+  @apply backdrop-blur-md bg-white/15 dark:bg-gray-800/15 border border-white/20 dark:border-gray-700/20;
+  @apply rounded-2xl p-6 shadow-glass transition-all duration-300;
+  @apply hover:bg-white/20 dark:hover:bg-gray-800/20 hover:shadow-glow;
+}
+
+/* Glass Dropdown */
+.glass-dropdown {
+  @apply backdrop-blur-lg bg-white/25 dark:bg-gray-800/25 border border-white/20 dark:border-gray-700/20;
+  @apply rounded-xl shadow-glass z-50;
+}
+
+/* Glass Badge */
+.glass-badge {
+  @apply backdrop-blur-sm bg-red-500/50 border border-red-400/30 text-white;
+  @apply rounded-full text-xs font-medium;
+}
+
+/* Glass Logo Background */
+.glass-logo {
+  @apply backdrop-blur-sm bg-white/10 dark:bg-gray-900/10 rounded-full p-2;
+}
+
+/* Glass Loading State */
+.glass-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: glass-shimmer 2s linear infinite;
+}
+
+.dark .glass-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+}
+
+/* Glass Text Contrast */
+.glass-text-primary {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+.glass-text-secondary {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.glass-text-muted {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+/* Responsive Glass Effects */
+@media (max-width: 768px) {
+  .glass-base {
+    @apply backdrop-blur-sm;
+  }
+  
+  .glass-card {
+    @apply p-4 rounded-xl;
+  }
+  
+  .glass-nav {
+    @apply backdrop-blur-lg;
+  }
+}
+
+/* Performance Optimizations */
+.glass-optimized {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .glass-base {
+    @apply bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-white;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .glass-interactive {
+    @apply transition-none;
+  }
+  
+  .glass-shimmer {
+    animation: none;
+  }
+}
